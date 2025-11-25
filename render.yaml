@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: sanctuary-backend
+    env: python
+    region: frankfurt
+    buildCommand: pip install -r requirements.txt
+    startCommand: cd backend && gunicorn wsgi:application
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.8
